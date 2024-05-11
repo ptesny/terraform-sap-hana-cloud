@@ -60,4 +60,4 @@ Contributions to this module are welcome. Please ensure that your pull requests 
 
 ### License
 
-Specify the license under which your module is distributed.
+Apache 2 Licensed. See [LICENSE](./LICENSE) for full details.
