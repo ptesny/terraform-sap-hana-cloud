@@ -1,5 +1,19 @@
 data "btp_globalaccount" "this" {}
 
+locals {
+  hana_data_parameters = var.database_mappings == null ? {
+    memory                 = var.memory
+    vcpu                   = var.vcpu
+    generateSystemPassword = true
+    whitelistIPs           = var.whitelist_ips
+    } : merge(var.database_mappings, {
+      memory                 = var.memory
+      vcpu                   = var.vcpu
+      generateSystemPassword = true
+      whitelistIPs           = var.whitelist_ips
+    })
+}
+
 resource "btp_subaccount_entitlement" "hana_cloud" {
   subaccount_id = var.subaccount_id
   service_name  = var.service_name
@@ -64,15 +78,8 @@ resource "btp_subaccount_service_instance" "my_sap_hana_cloud_instance" {
   serviceplan_id = data.btp_subaccount_service_plan.my_hana_plan.id
   name           = var.instance_name
   parameters = jsonencode({
-    data = {
-      memory                 = var.memory
-      vcpu                   = var.vcpu
-      generateSystemPassword = true
-      whitelistIPs           = var.whitelist_ips
-      databaseMappings = var.database_mappings
-    }
+    data = local.hana_data_parameters
   })
-  # labels = var.labels
   depends_on = [
     btp_subaccount_subscription.hana_cloud_tools
   ]
