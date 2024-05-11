@@ -1,10 +1,12 @@
-resource "btp_subaccount_entitlement" "entitlements" {
+data "btp_globalaccount" "this" {}
+
+resource "btp_subaccount_entitlement" "hana_cloud" {
   subaccount_id = var.subaccount_id
-  service_name  = "hana-cloud"
-  plan_name     = "hana-td"
+  service_name  = var.service_name
+  plan_name     = var.plan_name
 }
 
-resource "btp_subaccount_entitlement" "name" {
+resource "btp_subaccount_entitlement" "tools" {
   subaccount_id = var.subaccount_id
   service_name  = var.hana_cloud_tools_app_name
   plan_name     = var.hana_cloud_tools_plan_name
@@ -44,15 +46,15 @@ resource "btp_subaccount_subscription" "hana_cloud_tools" {
   subaccount_id = var.subaccount_id
   app_name      = var.hana_cloud_tools_app_name
   plan_name     = var.hana_cloud_tools_plan_name
-  depends_on    = [btp_subaccount_entitlement.entitlements]
+  depends_on    = [btp_subaccount_entitlement.tools]
 }
 
 data "btp_subaccount_service_plan" "my_hana_plan" {
   subaccount_id = var.subaccount_id
-  name          = "hana-td"
-  offering_name = "hana-cloud"
+  name          = var.plan_name
+  offering_name = var.service_name
   depends_on = [
-    btp_subaccount_entitlement.entitlements
+    btp_subaccount_entitlement.hana_cloud
   ]
 }
 
@@ -66,7 +68,7 @@ resource "btp_subaccount_service_instance" "my_sap_hana_cloud_instance" {
       memory                 = var.memory
       vcpu                   = var.vcpu
       generateSystemPassword = true
-      whitelistIPs           = ["0.0.0.0/0"]
+      whitelistIPs           = var.whitelist_ips
       databaseMappings = var.database_mappings
     }
   })

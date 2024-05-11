@@ -1,3 +1,15 @@
+variable "service_name" {
+  description = "The name of the SAP HANA Cloud service"
+  type        = string
+  default     = "hana-cloud"
+}
+
+variable "plan_name" {
+  description = "The name of the SAP HANA Cloud plan"
+  type        = string
+  default     = "hana-td"
+}
+
 variable "instance_name" {
   description = "The name of the SAP HANA Cloud instance"
   type        = string
@@ -64,4 +76,10 @@ variable "labels" {
   description = "The labels of the SAP HANA Cloud instance"
   type        = map(string)
   default     = {}
+}
+
+variable "whitelist_ips" {
+  description = "The list of IP addresses to whitelist"
+  type        = list(string)
+  default     = []
 }
