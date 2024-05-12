@@ -68,8 +68,7 @@ variable "database_mappings" {
     organization_guid = string
     space_guid        = string
   }))
-  default = []
-
+  default = null
 }
 
 variable "labels" {
