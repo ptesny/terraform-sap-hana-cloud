@@ -28,7 +28,13 @@ module "sap_hana_cloud" {
   memory                    = 32
   vcpu                      = 4
   whitelist_ips             = ["192.168.0.1"]
-  database_mappings         = []
+  database_mappings         = [
+    # provide mappings for cf or kyma env
+    {
+      organization_guid = # your cf org id
+      space_guid        = # your space guid
+    }
+  ]
 }
 ```
 
