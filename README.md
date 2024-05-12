@@ -48,7 +48,7 @@ module "sap_hana_cloud" {
 | `memory` | Amount of memory allocated to the HANA instance in GB. | `number` | `32` | no |
 | `vcpu` | Number of virtual CPUs allocated to the instance. | `number` | `2` | no |
 | `whitelist_ips` | List of IP addresses whitelisted for access. | `list(string)` | `[]` | no |
-| `database_mappings` | Database mappings configuration. | `list(any)` | `[]` | no |
+| `database_mappings` | Database mappings configuration. | `list(any)` | `null` | no |
 
 ### Outputs
 
@@ -60,4 +60,4 @@ Contributions to this module are welcome. Please ensure that your pull requests 
 
 ### License
 
-Apache 2 Licensed. See [LICENSE](./LICENSE) for full details.
+Apache 2 Licensed. See [LICENSE](https://github.com/codeyogi911/terraform-sap-hana-cloud/blob/main/LICENSE) for full details.
