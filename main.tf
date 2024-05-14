@@ -6,12 +6,12 @@ locals {
     vcpu                   = var.vcpu
     generateSystemPassword = true
     whitelistIPs           = var.whitelist_ips
-    } : merge(var.database_mappings, {
+    } : merge({ databaseMappings : var.database_mappings }, {
       memory                 = var.memory
       vcpu                   = var.vcpu
       generateSystemPassword = true
       whitelistIPs           = var.whitelist_ips
-    })
+  })
 }
 
 resource "btp_subaccount_entitlement" "hana_cloud" {
