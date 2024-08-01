@@ -16,7 +16,7 @@ To run this example, you need to perform the following steps:
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/codeyogi911/terraform-sap-hana-cloud.git
+   git clone https://github.com/ptesny/terraform-sap-hana-cloud.git
    cd terraform-sap-hana-cloud/examples
    ```
 
