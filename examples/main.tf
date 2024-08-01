@@ -4,9 +4,8 @@ resource "btp_subaccount" "this" {
   region    = var.region
 }
 
-module "hana_cloud" {
-  source        = "ptesny/hana-cloud/sap"
-  version       = "0.0.1"
+module "sap_hana_cloud" {
+  source        = "github.com/ptesny/terraform-sap-hana-cloud"
   instance_name = "hc-trial"
   admins        = var.admins
   subaccount_id = btp_subaccount.this.id
