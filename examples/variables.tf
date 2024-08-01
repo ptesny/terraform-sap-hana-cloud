@@ -1,6 +1,6 @@
 
 # Define the input variables
-variable "globacct" {
+variable "globalaccount" {
   description = "The name of the SAP BTP Global Account"
   type        = string
 }
@@ -28,11 +28,9 @@ variable "subdomain" {
 variable "admins" {
   description = "The list of email addresses of the SAP BTP Subaccount Administrators"
   type        = list(string)
-
 }
 
 variable "region" {
   description = "The region of the SAP BTP Subaccount"
   type        = string
-  default = "eu10"
 }
