@@ -49,13 +49,11 @@ variable "security_admins" {
 variable "memory" {
   description = "The memory size of the SAP HANA Cloud instance"
   type        = number
-  default     = 16
 }
 
 variable "vcpu" {
   description = "The number of vCPUs of the SAP HANA Cloud instance"
   type        = number
-  default     = 1
 }
 
 variable "database_mappings" {
