@@ -14,7 +14,7 @@ To use this module in your Terraform environment, you can clone it from the GitH
 
 ```hcl
 module "sap_hana_cloud" {
-  source = "github.com/codeyogi911/terraform-sap-hana-cloud"
+  source = "github.com/ptesny/terraform-sap-hana-cloud"
 
   subaccount_id             = "<subaccount-id>"
   service_name              = "hana"
@@ -25,9 +25,9 @@ module "sap_hana_cloud" {
   viewers                   = ["viewer@example.com"]
   security_admins           = ["sec-admin@example.com"]
   instance_name             = "my-hana-instance"
-  memory                    = 32
-  vcpu                      = 4
-  whitelist_ips             = ["192.168.0.1"]
+  memory                    = 16
+  vcpu                      = 1
+  whitelist_ips             = ["0.0.0.0"]
   database_mappings         = [
     # provide mappings for cf or kyma env
     {
