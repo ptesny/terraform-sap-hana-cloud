@@ -6,15 +6,15 @@ resource "btp_subaccount" "this" {
 
 module "sap_hana_cloud" {
   source                     = "github.com/ptesny/terraform-sap-hana-cloud"
-  service_name               = "hana-cloud-trial"
-  plan_name                  = "hana"
-  hana_cloud_tools_app_name  = "hana-cloud-tools-trial"
-  hana_cloud_tools_plan_name = "tools"  
+  service_name               = var.service_name
+  plan_name                  = var.plan_name
+  hana_cloud_tools_app_name  = var.hana_cloud_tools_app_name
+  hana_cloud_tools_plan_name = var.hana_cloud_tools_plan_name
 
-  memory                     = 16
-  vcpu                       = 1
+  memory                     = var.memory
+  vcpu                       = var.vcpu
 
-  instance_name              = "hc-trial"
+  instance_name              = var.instance_name
   admins                     = var.admins
   subaccount_id              = btp_subaccount.this.id
   whitelist_ips              = ["0.0.0.0/0"]
