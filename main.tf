@@ -110,7 +110,7 @@ data "btp_subaccount_service_instance" "my_hana_service" {
 # create a service binding in a subaccount
 resource "btp_subaccount_service_binding" "hc_binding" {
   subaccount_id       = var.subaccount_id
-  service_instance_id = data.btp_subaccount_service_instance.my_hana_service
+  service_instance_id = data.btp_subaccount_service_instance.my_hana_service.id
   name                = "hc-binding"
   depends_on = [
     btp_subaccount_service_instance.my_sap_hana_cloud_instance
@@ -120,7 +120,7 @@ resource "btp_subaccount_service_binding" "hc_binding" {
 # create a parameterized service binding in a subaccount
 resource "btp_subaccount_service_binding" "hc_binding_x509" {
   subaccount_id       = var.subaccount_id
-  service_instance_id = data.btp_subaccount_service_instance.my_hana_service
+  service_instance_id = data.btp_subaccount_service_instance.my_hana_service.id
   name                = "hc-binding-x509"
   parameters = jsonencode({
     credential-type: "x509"
