@@ -67,6 +67,13 @@ resource "btp_subaccount_subscription" "hana_cloud_tools" {
   depends_on    = [btp_subaccount_entitlement.tools]
 }
 
+data "btp_subaccount_subscription" "hana_cloud_tools_data" {
+  subaccount_id = var.subaccount_id
+  app_name      = var.hana_cloud_tools_app_name
+  plan_name     = var.hana_cloud_tools_plan_name
+  depends_on    = [btp_subaccount_entitlement.tools]
+}
+
 data "btp_subaccount_service_plan" "my_hana_plan" {
   subaccount_id = var.subaccount_id
   name          = var.plan_name
