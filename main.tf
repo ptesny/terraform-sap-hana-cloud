@@ -128,7 +128,7 @@ resource "btp_subaccount_service_binding" "hc_binding_dbadmin" {
 }
 
 # look up service binding by name
-data "btp_subaccount_service_binding" "hc_binding_dbadmin_data" {
+data "btp_subaccount_service_binding" "hc_binding_dbadmin" {
   subaccount_id = var.subaccount_id
   name          = "hc_binding_dbadmin"
   depends_on = [
