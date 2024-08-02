@@ -131,9 +131,7 @@ resource "btp_subaccount_service_binding" "hc_binding_dbadmin" {
 data "btp_subaccount_service_binding" "my_hana_service_binding" {
   subaccount_id = var.subaccount_id
   name          = "hc_binding_dbadmin"
-  depends_on = [
-    btp_subaccount_service_instance.my_sap_hana_cloud_instance[0]
-  ]
+
 }
 
 # create a service binding in a subaccount
