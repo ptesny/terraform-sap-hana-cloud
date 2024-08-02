@@ -127,11 +127,6 @@ resource "btp_subaccount_service_binding" "hc_binding_dbadmin" {
   ]
 }
 
-# look up service binding by name
-data "btp_subaccount_service_binding" "my_hana_service_binding" {
-  subaccount_id = var.subaccount_id
-  name          = "hc_binding_dbadmin"
-}
 
 # create a service binding in a subaccount
 resource "btp_subaccount_service_binding" "hc_binding" {
