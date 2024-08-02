@@ -113,7 +113,7 @@ resource "btp_subaccount_service_binding" "hc_binding" {
   service_instance_id = data.btp_subaccount_service_instance.my_hana_service.id
   name                = "hc-binding"
   depends_on = [
-    btp_subaccount_service_instance.my_hana_service
+    btp_subaccount_service_instance.my_sap_hana_cloud_instance[0]
   ]
 }
 
@@ -127,6 +127,6 @@ resource "btp_subaccount_service_binding" "hc_binding_x509" {
     x509 = {    "key-length": 4096,"validity": 365,"validity-type": "DAYS" }
   })
   depends_on = [
-    btp_subaccount_service_instance.my_hana_service
+    btp_subaccount_service_instance.my_sap_hana_cloud_instance[0]
   ]
 }
