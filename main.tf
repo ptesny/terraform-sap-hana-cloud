@@ -123,7 +123,7 @@ resource "btp_subaccount_service_binding" "hc_binding_x509" {
   service_instance_id = data.btp_subaccount_service_instance.my_hana_service.id
   name                = "hc-binding-x509"
   parameters = jsonencode({
-    credential-type: "x509"
+    credential-type = "x509"
     x509 = {    "key-length": 4096,"validity": 365,"validity-type": "DAYS" }
   })
   depends_on = [
