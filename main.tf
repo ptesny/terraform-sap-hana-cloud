@@ -132,7 +132,7 @@ data "btp_subaccount_service_binding" "hc_binding_dbadmin_data" {
   subaccount_id = var.subaccount_id
   name          = "hc_binding_dbadmin"
   depends_on = [
-    btp_subaccount_service_binding.hc_binding_dbadmin
+    btp_subaccount_service_instance.my_sap_hana_cloud_instance[0]
   ]
 }
 
