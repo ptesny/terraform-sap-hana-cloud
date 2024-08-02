@@ -61,11 +61,16 @@ variable "hana_cloud_tools_plan_name" {
 }
 
 variable "memory" {
-  description = "The memory size of the SAP HANA Cloud instance"
+  description = "Memory size of the SAP HANA Cloud instance"
   type        = number
 }
 
 variable "vcpu" {
-  description = "The number of vCPUs of the SAP HANA Cloud instance"
+  description = "Number of vCPUs of the SAP HANA Cloud instance"
+  type        = number
+}
+
+variable "storage" {
+  description = "Storage size of the SAP HANA Cloud instance"
   type        = number
 }

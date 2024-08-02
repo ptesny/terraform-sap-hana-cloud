@@ -56,6 +56,11 @@ variable "vcpu" {
   type        = number
 }
 
+variable "storage" {
+  description = "Storage size of the SAP HANA Cloud instance"
+  type        = number
+}
+
 variable "database_mappings" {
   description = "The database mapping for the SAP HANA Cloud instance"
   type = list(object({

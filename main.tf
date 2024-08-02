@@ -4,6 +4,7 @@ locals {
   params_without_mappings = {
     memory                 = var.memory
     vcpu                   = var.vcpu
+    storage                = var.storage
     generateSystemPassword = true
     whitelistIPs           = var.whitelist_ips
   }
@@ -11,6 +12,7 @@ locals {
     databaseMappings       = var.database_mappings
     memory                 = var.memory
     vcpu                   = var.vcpu
+    storage                = var.storage
     generateSystemPassword = true
     whitelistIPs           = var.whitelist_ips
   }

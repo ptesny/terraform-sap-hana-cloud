@@ -13,6 +13,7 @@ module "sap_hana_cloud" {
 
   memory                     = var.memory
   vcpu                       = var.vcpu
+  storage                    = var.storage
 
   instance_name              = var.instance_name
   admins                     = var.admins
