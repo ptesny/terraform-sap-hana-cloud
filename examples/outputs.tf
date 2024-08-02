@@ -16,5 +16,5 @@ output "hc_credentials" {
 
 output "hc_credentials_x509" {
   sensitive = true
-  value = module.sap_hana_cloud.hc_credentials_x509
+  value = jsondecode(module.sap_hana_cloud.hc_credentials_x509)
 }
