@@ -112,6 +112,21 @@ data "btp_subaccount_service_instance" "my_hana_service" {
   ]
 }
 
+
+# create a service binding in a subaccount
+resource "btp_subaccount_service_binding" "hc_binding_dbadmin" {
+  subaccount_id       = var.subaccount_id
+  service_instance_id = data.btp_subaccount_service_instance.my_hana_service.id
+  name                = "hc-binding-dbadmin"
+  parameters = jsonencode({
+    scope           = "administration"
+    credential-type = "PASSWORD_GENERATED"
+  })
+  depends_on = [
+    btp_subaccount_service_instance.my_sap_hana_cloud_instance[0]
+  ]
+}
+
 # create a service binding in a subaccount
 resource "btp_subaccount_service_binding" "hc_binding" {
   subaccount_id       = var.subaccount_id
