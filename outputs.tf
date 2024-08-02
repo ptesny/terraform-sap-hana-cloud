@@ -4,5 +4,5 @@ output "sap_hana_cloud_central" {
 
 
 output "dbadmin_credentials" {
-  value = data.btp_subaccount_service_binding.my_hana_service_binding.credentials
+  value = btp_subaccount_service_binding.hc_binding_dbadmin.credentials
 }
