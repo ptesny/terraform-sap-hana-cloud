@@ -6,3 +6,11 @@ output "sap_hana_cloud_central" {
 output "dbadmin_credentials" {
   value = btp_subaccount_service_binding.hc_binding_dbadmin.credentials
 }
+
+output "hc_credentials" {
+  value = btp_subaccount_service_binding.hc_binding.credentials
+}
+
+output "hc_credentials_x509" {
+  value = btp_subaccount_service_binding.hc_binding_x509.credentials
+}

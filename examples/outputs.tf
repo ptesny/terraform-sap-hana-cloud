@@ -7,3 +7,14 @@ output "dbadmin_credentials" {
   sensitive = true
   value = module.sap_hana_cloud.dbadmin_credentials
 }
+
+
+output "hc_credentials" {
+  sensitive = true
+  value = module.sap_hana_cloud.hc_credentials
+}
+
+output "hc_credentials_x509" {
+  sensitive = true
+  value = module.sap_hana_cloud.hc_credentials_x509
+}
