@@ -43,7 +43,7 @@ The following variables need to be configured to use this example:
 | `subaccount_name` | The name of the SAP BTP Subaccount. | `string` | yes |
 | `subdomain` | The subdomain of the SAP BTP Subaccount. | `string` | yes |
 | `admins` | List of email addresses for the SAP BTP Subaccount Administrators. | `list(string)` | yes |
-| `globacct` | The name of the SAP BTP Global Account. | `string` | yes |
+| `globalaccount` | The name of the SAP BTP Global Account. | `string` | yes |
 | `username` | The username of the SAP BTP Global Account Administrator. | `string` | yes |
 | `password` | The password of the SAP BTP Global Account Administrator. | `string` | yes |
 
