@@ -105,9 +105,6 @@ resource "btp_subaccount_service_instance" "my_sap_hana_cloud_instance_with_mapp
 data "btp_subaccount_service_instance" "my_hana_service" {
   subaccount_id = var.subaccount_id
   name          = var.instance_name
-  depends_on = [
-    btp_subaccount_service_instance.my_sap_hana_cloud_instance[0]
-  ]
 }
 
 # create a service binding in a subaccount
@@ -116,7 +113,7 @@ resource "btp_subaccount_service_binding" "hc_binding" {
   service_instance_id = data.btp_subaccount_service_instance.my_hana_service.id
   name                = "hc-binding"
   depends_on = [
-    btp_subaccount_service_instance.my_sap_hana_cloud_instance[0]
+    btp_subaccount_service_instance.my_hana_service
   ]
 }
 
@@ -130,6 +127,6 @@ resource "btp_subaccount_service_binding" "hc_binding_x509" {
     x509 = {    "key-length": 4096,"validity": 365,"validity-type": "DAYS" }
   })
   depends_on = [
-    btp_subaccount_service_instance.my_sap_hana_cloud_instance[0]
+    btp_subaccount_service_instance.my_hana_service
   ]
 }
