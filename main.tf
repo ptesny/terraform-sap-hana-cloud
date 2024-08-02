@@ -124,7 +124,7 @@ resource "btp_subaccount_service_binding" "hc_binding_x509" {
   name                = "hc-binding-x509"
   parameters = jsonencode({
     credential-type: "x509"
-    x509 = "{    "key-length": 4096,"validity": 365,"validity-type": "DAYS" }"
+    x509 = {    "key-length": 4096,"validity": 365,"validity-type": "DAYS" }
   })
   depends_on = [
     btp_subaccount_service_instance.my_sap_hana_cloud_instance[0]
