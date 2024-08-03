@@ -92,6 +92,11 @@ resource "btp_subaccount_service_instance" "my_sap_hana_cloud_instance" {
   parameters = jsonencode({
     data = local.params_without_mappings
   })
+  timeouts = {
+    create = "15m"
+    update = "15m"
+    delete = "5m"
+  }
   depends_on = [
     btp_subaccount_subscription.hana_cloud_tools
   ]
@@ -105,6 +110,11 @@ resource "btp_subaccount_service_instance" "my_sap_hana_cloud_instance_with_mapp
   parameters = jsonencode({
     data = local.params_with_mappings
   })
+  timeouts = {
+    create = "15m"
+    update = "15m"
+    delete = "5m"
+  }
   depends_on = [
     btp_subaccount_subscription.hana_cloud_tools
   ]
