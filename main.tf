@@ -172,8 +172,7 @@ resource "btp_subaccount_service_instance" "dest_bootstrap" {
   serviceplan_id = data.btp_subaccount_service_plan.dest_lite.id
   name           = "dest_bootstrap"
   parameters = jsonencode({
-    init_data = {
-"subaccount" = {
+"init_data" = { "subaccount" = {
   "destinations" = {
     "Description" = "dest-httpbin"
 
@@ -231,8 +230,8 @@ resource "btp_subaccount_service_instance" "dest_bootstrap" {
   "existing_certificates_policy" = "update"
 
   "existing_destinations_policy" = "update"
-}    
-    }
+}
+}
   })
 
 }
