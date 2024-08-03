@@ -14,3 +14,7 @@ output "hc_credentials" {
 output "hc_credentials_x509" {
   value = btp_subaccount_service_binding.hc_binding_x509.credentials
 }
+
+output "dest_credentials" {
+  value = btp_subaccount_service_binding.dest_binding.credentials
+}
