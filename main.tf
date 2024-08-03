@@ -173,7 +173,7 @@ resource "btp_subaccount_service_instance" "dest_bootstrap" {
   name           = var.instance_name
   parameters = jsonencode({
     init_data = {
-"subaccount" {
+"subaccount" = {
   "destinations" = {
     "Description" = "dest-httpbin"
 
