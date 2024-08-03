@@ -240,6 +240,9 @@ resource "btp_subaccount_service_instance" "dest_bootstrap" {
 # create a service binding in a subaccount
 resource "btp_subaccount_service_binding" "dest_binding" {
   subaccount_id       = var.subaccount_id
-  service_instance_id = data.btp_subaccount_service_instance.dest_bootstrap.id
+  service_instance_id = btp_subaccount_service_instance.dest_bootstrap.id
   name                = "dest-binding"
+  depends_on = [
+    btp_subaccount_service_instance.dest_bootstrap
+  ]
 }
