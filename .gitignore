@@ -34,3 +34,7 @@ override.tf.json
 terraform.rc
 examples/.terraform.lock.hcl
 .terraform.lock.hcl
+.DS_Store
+examples/hc-certificates.json
+examples/hc-destinations.json
+examples/Makefile
