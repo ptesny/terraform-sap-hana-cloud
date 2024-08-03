@@ -30,6 +30,13 @@ resource "btp_subaccount_entitlement" "tools" {
   plan_name     = var.hana_cloud_tools_plan_name
 }
 
+resource "btp_subaccount_entitlement" "destination" {
+  subaccount_id = var.subaccount_id
+  service_name  = "destination"
+  plan_name     = "lite"
+}
+
+
 resource "btp_subaccount_role_collection_assignment" "hana_admin" {
   subaccount_id        = var.subaccount_id
   for_each             = var.admins == null ? {} : { for user in var.admins : user => user }
@@ -174,6 +181,7 @@ data "btp_subaccount_service_plan" "dest_lite" {
   subaccount_id = var.subaccount_id
   name          = "lite"
   offering_name = "destination"
+  depends_on    = [btp_subaccount_entitlement.destination]
 }
 
 # Create/update destination bootstrap service instance
