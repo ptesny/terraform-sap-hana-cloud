@@ -38,3 +38,7 @@ examples/.terraform.lock.hcl
 examples/hc-certificates.json
 examples/hc-destinations.json
 examples/Makefile
+examples/dest-bootstrap.json
+examples/dest-bootstrap2.json
+examples/dest-bootstrap3.json
+examples/toto.json

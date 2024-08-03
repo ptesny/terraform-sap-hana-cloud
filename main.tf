@@ -222,7 +222,24 @@ resource "btp_subaccount_service_binding" "dest_binding" {
   subaccount_id       = var.subaccount_id
   service_instance_id = btp_subaccount_service_instance.dest_bootstrap.id
   name                = "dest-binding"
+
   depends_on = [
     btp_subaccount_service_instance.dest_bootstrap
+  ]
+}
+
+
+# create a service binding data source
+data "btp_subaccount_service_binding" "dest_binding_data" {
+  subaccount_id       = var.subaccount_id
+  name                = "dest-binding"
+
+  user_data = <<-EOF
+    #!/bin/bash
+    data.btp_subaccount_service_binding.dest_binding_data | jq -M '.credentials | { clientid, clientsecret, url: (.url+ "/oauth/token"), uri: (.uri + "/destination-configuration/v1") }'
+    EOF
+    
+  depends_on = [
+    btp_subaccount_service_binding.dest_binding
   ]
 }
