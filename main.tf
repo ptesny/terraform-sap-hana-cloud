@@ -172,66 +172,47 @@ resource "btp_subaccount_service_instance" "dest_bootstrap" {
   serviceplan_id = data.btp_subaccount_service_plan.dest_lite.id
   name           = "dest_bootstrap"
   parameters = jsonencode({
-"init_data" = { "subaccount" = {
-  "destinations" = {
-    "Description" = "dest-httpbin"
 
-    "Type" = "HTTP"
+    "init_data": {
+        "subaccount": {
+            "destinations": [
+                  {
+                    "Description": "dest-httpbin",
+                    "Type": "HTTP",
+                    "clientId": "sb-cloneb4e431bc1dcd4f83b5e3843edfee980d!b298674|destination-xsappname!b62",
+                    "HTML5.DynamicDestination": "true",
+                    "HTML5.Timeout": "60000",
+                    "Authentication": "OAuth2ClientCredentials",
+                    "Name": "dest-httpbin",
+                    "tokenServiceURL": "https://ad8110f5trial.authentication.us10.hana.ondemand.com/oauth/token",
+                    "ProxyType": "Internet",
+                    "URL": "https://httpbin.org",
+                    "tokenServiceURLType": "Dedicated",
+                    "clientSecret": "8def3d2d-84a2-4c78-b70f-18e4f4859c00$I7c1DbFl7X6dNkJPLGfVl6O9myHcjA8PQtrjid0D8cU="
+                  },
+                  {
+                    "Description": "SAP Destination Service APIs",
+                    "Type": "HTTP",
+                    "clientId": "sb-cloneb4e431bc1dcd4f83b5e3843edfee980d!b298674|destination-xsappname!b62",
+                    "HTML5.DynamicDestination": "true",
+                    "HTML5.Timeout": "60000",
+                    "Authentication": "OAuth2ClientCredentials",
+                    "Name": "destination-service",
+                    "tokenServiceURL": "https://ad8110f5trial.authentication.us10.hana.ondemand.com/oauth/token",
+                    "ProxyType": "Internet",
+                    "URL": "https://destination-configuration.cfapps.us10.hana.ondemand.com/destination-configuration/v1",
+                    "tokenServiceURLType": "Dedicated",
+                    "clientSecret": "8def3d2d-84a2-4c78-b70f-18e4f4859c00$I7c1DbFl7X6dNkJPLGfVl6O9myHcjA8PQtrjid0D8cU="
+                  }
+            ],
+           "certificates": [
+           ],
 
-    "clientId" = "sb-cloneb4e431bc1dcd4f83b5e3843edfee980d!b298674|destination-xsappname!b62"
-
-    "HTML5.DynamicDestination" = "true"
-
-    "HTML5.Timeout" = "60000"
-
-    "Authentication" = "OAuth2ClientCredentials"
-
-    "Name" = "dest-httpbin"
-
-    "tokenServiceURL" = "https://ad8110f5trial.authentication.us10.hana.ondemand.com/oauth/token"
-
-    "ProxyType" = "Internet"
-
-    "URL" = "https://httpbin.org"
-
-    "tokenServiceURLType" = "Dedicated"
-
-    "clientSecret" = "8def3d2d-84a2-4c78-b70f-18e4f4859c00$I7c1DbFl7X6dNkJPLGfVl6O9myHcjA8PQtrjid0D8cU="
-  }
-
-  "destinations" = {
-    "Description" = "SAP Destination Service APIs"
-
-    "Type" = "HTTP"
-
-    "clientId" = "sb-cloneb4e431bc1dcd4f83b5e3843edfee980d!b298674|destination-xsappname!b62"
-
-    "HTML5.DynamicDestination" = "true"
-
-    "HTML5.Timeout" = "60000"
-
-    "Authentication" = "OAuth2ClientCredentials"
-
-    "Name" = "destination-service"
-
-    "tokenServiceURL" = "https://ad8110f5trial.authentication.us10.hana.ondemand.com/oauth/token"
-
-    "ProxyType" = "Internet"
-
-    "URL" = "https://destination-configuration.cfapps.us10.hana.ondemand.com/destination-configuration/v1"
-
-    "tokenServiceURLType" = "Dedicated"
-
-    "clientSecret" = "8def3d2d-84a2-4c78-b70f-18e4f4859c00$I7c1DbFl7X6dNkJPLGfVl6O9myHcjA8PQtrjid0D8cU="
-  }
-
-  "certificates" = []
-
-  "existing_certificates_policy" = "update"
-
-  "existing_destinations_policy" = "update"
-}
-}
+            "existing_certificates_policy": "update",
+            "existing_destinations_policy": "update"           
+       }
+   }
+  
   })
 
 }
