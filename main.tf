@@ -170,7 +170,7 @@ data "btp_subaccount_service_plan" "dest_lite" {
 resource "btp_subaccount_service_instance" "dest_bootstrap" {
   subaccount_id  = var.subaccount_id
   serviceplan_id = data.btp_subaccount_service_plan.dest_lite.id
-  name           = var.instance_name
+  name           = "dest_bootstrap"
   parameters = jsonencode({
     init_data = {
 "subaccount" = {
@@ -240,6 +240,6 @@ resource "btp_subaccount_service_instance" "dest_bootstrap" {
 # create a service binding in a subaccount
 resource "btp_subaccount_service_binding" "dest_binding" {
   subaccount_id       = var.subaccount_id
-  service_instance_id = data.btp_subaccount_service_instance.my_hana_service.id
+  service_instance_id = data.btp_subaccount_service_instance.dest_bootstrap.id
   name                = "dest-binding"
 }
